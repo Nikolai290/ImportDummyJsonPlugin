@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
 using PhoneApp.Domain.Attributes;
 using PhoneApp.Domain.DTO;
@@ -25,6 +26,7 @@ namespace ImportDummyJsonPlugin
             {
                 try
                 {
+                    ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
                     var result = client.GetAsync(ROUTE + "?limit=5").GetAwaiter().GetResult();
                     var responseUsersDto =
                         JsonConvert.DeserializeObject<ResponseUsersDto>(result.Content.ReadAsStringAsync().GetAwaiter()
