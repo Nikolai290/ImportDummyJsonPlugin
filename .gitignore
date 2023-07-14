@@ -1,3 +1,4 @@
 .idea
 /ImportDummyJsonPlugin/bin/*
 /ImportDummyJsonPlugin/obj/*
+/packages/*
